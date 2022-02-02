@@ -17,10 +17,9 @@ const App = () => {
         footer={
           <div className="d-flex justify-content-end">
             <Pagination
-              currentPage={page}
-              perPage={10}
+              page={page}
               totalItems={total}
-              onClick={(page) => setPage(page)}
+              onPage={(page) => setPage(page)}
             />
           </div>
         }

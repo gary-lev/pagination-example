@@ -1,22 +1,29 @@
-import React, { FC, MouseEvent } from 'react'
-import { PaginationItem, PaginationLink } from '@levco/shared-components'
+import React, { FC } from 'react'
+import { Button, ButtonProps } from '@levco/shared-components'
 
-type PageProps = {
-  current: boolean
+interface PageProps extends Omit<ButtonProps, 'onClick'> {
+  current?: boolean
   onClick: (pageNumber: number) => void
   page: number
 }
 
-const Page: FC<PageProps> = ({ current, page, ...props }) => {
-  const onClick = (event: MouseEvent) => {
-    event.preventDefault()
-    props.onClick(page)
-  }
-
+const Page: FC<PageProps> = ({
+  children,
+  current = false,
+  onClick,
+  page,
+  ...props
+}) => {
   return (
-    <PaginationItem active={current}>
-      <PaginationLink onClick={onClick}>{page}</PaginationLink>
-    </PaginationItem>
+    <Button
+      className="me-1"
+      color="primary"
+      onClick={() => onClick(page)}
+      outline={!current}
+      {...props}
+    >
+      <div style={{ width: '1.25rem' }}>{children}</div>
+    </Button>
   )
 }
 

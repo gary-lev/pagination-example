@@ -7,7 +7,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@levco/shared-components": "^1.4.0",
+    "@levco/shared-components": "^1.5.1",
     "clsx": "^1.1.1",
     "lodash.range": "^3.2.0",
     "react": "^17.0.2",
