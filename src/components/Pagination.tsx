@@ -28,10 +28,10 @@ const Paginator: FC<PaginatorProps> = ({
     <Pagination listClassName="m-0 p-0 mb-2 mb-sm-0 border-0 flex-row">
       {showPrevious && (
         <>
-          <Page page={1} disabled={!showPrevious} onClick={onPage}>
+          <Page page={1} color="link" outline={false} disabled={!showPrevious} onClick={onPage}>
             <Icon name="first_page" />
           </Page>
-          <Page page={currentPage - 1} disabled={!showPrevious} onClick={onPage}>
+          <Page page={currentPage - 1} color="link" outline={false} disabled={!showPrevious} onClick={onPage}>
             <Icon name="chevron_left" />
           </Page>
         </>
@@ -48,10 +48,10 @@ const Paginator: FC<PaginatorProps> = ({
       ))}
       {showNext && (
         <>
-          <Page page={currentPage + 1} onClick={onPage} disabled={!showNext}>
+          <Page page={currentPage + 1} color="link" outline={false} onClick={onPage} disabled={!showNext}>
             <Icon name="chevron_right" />
           </Page>
-          <Page page={totalPages} onClick={onPage} disabled={!showNext}>
+          <Page page={totalPages} color="link" outline={false} onClick={onPage} disabled={!showNext}>
             <Icon name="last_page" />
           </Page>
         </>
