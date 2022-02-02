@@ -26,12 +26,16 @@ const Paginator: FC<PaginatorProps> = ({
 
   return totalPages > 1 ? (
     <Pagination listClassName="m-0 p-0 mb-2 mb-sm-0 border-0 flex-row">
-      <Page page={1} disabled={!showPrevious} onClick={onPage}>
-        <Icon name="first_page" />
-      </Page>
-      <Page page={currentPage - 1} disabled={!showPrevious} onClick={onPage}>
-        <Icon name="chevron_left" />
-      </Page>
+      {showPrevious && (
+        <>
+          <Page page={1} disabled={!showPrevious} onClick={onPage}>
+            <Icon name="first_page" />
+          </Page>
+          <Page page={currentPage - 1} disabled={!showPrevious} onClick={onPage}>
+            <Icon name="chevron_left" />
+          </Page>
+        </>
+      )}
       {pages.map((page: number) => (
         <Page
           key={page}
@@ -42,12 +46,16 @@ const Paginator: FC<PaginatorProps> = ({
           {page}
         </Page>
       ))}
-      <Page page={currentPage + 1} onClick={onPage} disabled={!showNext}>
-        <Icon name="chevron_right" />
-      </Page>
-      <Page page={totalPages} onClick={onPage} disabled={!showNext}>
-        <Icon name="last_page" />
-      </Page>
+      {showNext && (
+        <>
+          <Page page={currentPage + 1} onClick={onPage} disabled={!showNext}>
+            <Icon name="chevron_right" />
+          </Page>
+          <Page page={totalPages} onClick={onPage} disabled={!showNext}>
+            <Icon name="last_page" />
+          </Page>
+        </>
+      )}
     </Pagination>
   ) : null
 }
